@@ -1,7 +1,7 @@
 use std::ops::DivAssign;
 
 pub fn extract_prefix(file_name: &str) -> String {
-    file_name.split("_").nth(0).unwrap().to_owned()
+    file_name.split('_').nth(0).unwrap().to_owned()
 }
 
 //creates string with as many zeroes, as their are zeroes in prefix in migration file name
