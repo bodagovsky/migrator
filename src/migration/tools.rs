@@ -12,6 +12,9 @@ pub(crate) fn ls() -> Result<Vec<String>, io::Error> {
             .unwrap()
             .cmp(&prefix::extract_prefix(&file_name(&b)).parse().unwrap())
     });
+    if entries.is_empty() {
+        return Err(io::Error::new(io::ErrorKind::Other, "empty folder"));
+    }
     Ok(entries)
 }
 
@@ -25,6 +28,12 @@ pub(crate) fn get_migrations() -> Result<Vec<String>, io::Error> {
             .unwrap()
             .cmp(&prefix::extract_prefix(&file_name(&b)).parse().unwrap())
     });
+    if entries.is_empty() {
+        return Err(io::Error::new(
+            io::ErrorKind::Other,
+            "migrations folder is empty",
+        ));
+    }
     Ok(entries)
 }
 

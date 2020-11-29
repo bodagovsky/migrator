@@ -5,11 +5,8 @@ use clap::{App, Arg};
 use migration::create::create_file_name;
 use migration::tools::ls;
 use migration::{create_sql_migration, last_number, sort_migrations};
-use std::env;
-use std::env::current_dir;
-use std::error::Error;
-use std::fs;
-use std::io;
+
+const DEFAULT_LEN: usize = 5;
 
 fn main() {
     let matches = App::new("Migrator")
@@ -39,6 +36,8 @@ fn main() {
         if let Ok(files) = ls() {
             let (last, len) = last_number(files);
             create_sql_migration(last + 1, len, file_name.as_str())
+        } else {
+            create_sql_migration(1, DEFAULT_LEN, file_name.as_str())
         }
     }
 }
