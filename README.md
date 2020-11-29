@@ -12,7 +12,7 @@ if you have dir "migrations" in your project where you keep all migrations files
 
 you can use the Migrator to automate migrations creation
 
-to create a new migration simply call ```migrator --name='create table for users'```
+to create a new migration simply call ```cargo run -- --name='create table for users'```
 
 imagine you have the listing shown above
 
@@ -36,7 +36,7 @@ Let's say you just have rebased the main branch of your project and you have a m
 0003_create_table_authors.sql
 ```
 
-you simply call ```migrator --sort```
+you simply call ```cargo run --  --sort```
 
 to have 
 
