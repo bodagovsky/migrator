@@ -1,17 +1,48 @@
 # migrator
-automating migration file creation and sorting.
 
-to create a new migration run:
-```migrator --name='create new table'``` 
+manage your migrations simple
 
-migrator will create a migration with next serial number
+if you have dir "migrations" in your project where you keep all migrations files number like
 
-"000x_create_new_table.sql"
+```
+0001_create_new_table.sql
+0002_add_column.sql
+0003_change_column_name.sql
+```
 
-To sort all the migrations in /migrations directory, provide --sort flag
+you can use the Migrator to automate migrations creation
 
-```migrator --sort```
+to create a new migration simply call ```migrator --name='create table for users'```
 
+imagine you have the listing shown above
 
-WARNING! if you do not have dir /migrations or it is empty, migrator will panic
+what you will see is 
 
+```
+0001_create_new_table.sql
+0002_add_column.sql
+0003_change_column_name.sql
+0004_create_table_for_users.sql
+```
+
+you can also sort your migrations very easily
+
+Let's say you just have rebase the main branch of your project and you have a migration collision like:
+
+```
+0001_create_new_table.sql
+0002_add_column.sql
+0003_change_column_name.sql
+0003_create_table_authors.sql
+```
+
+you simply call ```migrator --sort```
+
+to have 
+
+```
+0001_create_new_table.sql
+0002_add_column.sql
+0003_change_column_name.sql
+0004_create_table_authors.sql
+```
