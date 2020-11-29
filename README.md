@@ -2,7 +2,7 @@
 
 manage your migrations simple
 
-if you have dir "migrations" in your project where you keep all migrations files number like
+if you have dir "migrations" in your project where you keep all migrations files numbered like
 
 ```
 0001_create_new_table.sql
