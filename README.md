@@ -27,7 +27,7 @@ what you will see is
 
 you can also sort your migrations very easily
 
-Let's say you just have rebase the main branch of your project and you have a migration collision like:
+Let's say you just have rebased the main branch of your project and you have a migration collision like:
 
 ```
 0001_create_new_table.sql
